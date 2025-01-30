@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .container {
+            flex: 1;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .color-button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px;
+        }
+
+        .color-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .content-box {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>COLOR WHEEL😂</h1>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <h2>HEY👋!</h2>
+            <p>Click the button and see the magic ✨</p>
+            
+            <button class="color-button" onclick="showTime()">Click Me!</button>
+            
+            <p id="time-display"></p>
+            <p id="color-text"></p>
+        </div>
+    </div>
+
+    <script>
+        const colors = [
+            '#F44336', 
+            '#E91E63', 
+            '#9C27B0', 
+            '#673AB7', 
+            '#3F51B5', 
+            '#2196F3',
+            '#03A9F4', 
+            '#00BCD4',
+            '#009688', 
+            '#4CAF50', 
+            '#8BC34A', 
+            '#CDDC39', 
+            '#FFEB3B', 
+            '#FFC107', 
+            '#FF9800', 
+            '#FF5722', 
+            '#795548', 
+            '#9E9E9E', 
+            '#607D8B', 
+            '#000000', 
+            '#FFFFFF', 
+            '#FF4081', 
+            '#7C4DFF', 
+            '#00E676',  
+    'linear-gradient(45deg, #F44336, #FFC107)',  
+    'linear-gradient(45deg, #9C27B0, #2196F3)', 
+    'linear-gradient(45deg, #4CAF50, #FFEB3B)',  
+    'linear-gradient(45deg, #FF9800, #795548)',  
+    'linear-gradient(45deg, #03A9F4, #00BCD4)', 
+    'linear-gradient(45deg, #FF4081, #7C4DFF)',  
+    'linear-gradient(45deg, #607D8B, #9E9E9E)', 
+    'linear-gradient(45deg, #CDDC39, #4CAF50)',  
+    'linear-gradient(45deg, #FF5722, #E91E63)',  
+    'linear-gradient(45deg, #00E676, #009688)',  
+    'linear-gradient(45deg, #000000, #FFFFFF)', 
+    'linear-gradient(45deg, #673AB7, #3F51B5)' ,
+    'linear-gradient(45deg, #ff00ff, #ffcc00)',  
+'linear-gradient(45deg, #ff6699, #6600ff)',  
+'linear-gradient(45deg, #ff4500, #ffcc00)',  
+'linear-gradient(45deg, #0099ff, #33cc33)',  
+'linear-gradient(45deg, #ff0000, #000000)',  
+'linear-gradient(45deg, #66ffcc, #330099)',  
+'linear-gradient(45deg, #ffcccc, #ff99ff)',  
+'linear-gradient(45deg, #0033cc, #66ffff)',  
+'linear-gradient(45deg, #993399, #ff6600)',  
+'linear-gradient(45deg, #ff6666, #ffcc99)',  
+'linear-gradient(45deg, #333333, #999999)',  
+'linear-gradient(45deg, #003300, #99ff99)'
+    
+];
+
+let colorIndex = 0;
+
+function showTime() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString();
+
+    let chosenColor = colors[colorIndex];
+    document.body.style.background = chosenColor;
+
+    document.getElementById('time-display').textContent = `Current time: ${timeString}`;
+    document.getElementById('color-text').textContent = `Next color: ${colors[(colorIndex + 1) % colors.length]}`;
+
+    colorIndex = (colorIndex + 1) % colors.length; 
+}
+    </script>
+</body>
+  </html>
+  
